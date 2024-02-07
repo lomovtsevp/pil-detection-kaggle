@@ -5,9 +5,10 @@ name = "pypi"
 
 [packages]
 scikit-learn = "*"
-git = "*"
+kaggle = "*"
 
 [dev-packages]
+scikit-learn = "*"
 
 [requires]
 python_version = "3.11"

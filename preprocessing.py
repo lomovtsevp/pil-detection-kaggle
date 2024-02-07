@@ -1,4 +1,5 @@
 import json
+import pandas as pd
 
 class DataParser():
 
@@ -18,7 +19,7 @@ class DataParser():
                 data.append(json.load(f))
         return tuple(data)
     
-    def print_data(self, data: list, all=True):
+    def print_data(self, data: list, all: bool=True) -> None:
         '''
         Prints the data in the form of a tuple.
         '''
@@ -29,11 +30,25 @@ class DataParser():
             
         return 'Success'
     
+    def preprocessing(self, data: list) -> list:
+        '''
+        Performs preprocessing on the data.
+        '''
+        # TODO realize preprocessing for texts
+
+        for index, items in enumerate(data):
+            text, tokens, trailing_whitespace, labels = data[index]['full_text'], data[index]['tokens'], data[index]['trailing_whitespace'], data[index]['labels']
+            dataframe = pd.DataFrame({'text': text, 'tokens': tokens, 'trailing_whitespace': trailing_whitespace, 'labels': labels})
+            print(dataframe['labels'].unique())
+            break
+        return [0]
+    
 
 if __name__ == "__main__":
     parser = DataParser(filepaths=('data/train.json', 'data/test.json'))
     train, test = parser.parse_data()
-    parser.print_data(train)
+    parser.print_data(train, all=False)
+    parser.preprocessing(train)
 
 
 

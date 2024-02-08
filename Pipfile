@@ -11,6 +11,7 @@ pandas = "*"
 [dev-packages]
 scikit-learn = "*"
 pandas = "*"
+pyarrow = "*"
 
 [requires]
 python_version = "3.11"

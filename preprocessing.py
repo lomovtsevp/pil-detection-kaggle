@@ -38,8 +38,8 @@ class DataParser():
 
         for index, items in enumerate(data):
             text, tokens, trailing_whitespace, labels = data[index]['full_text'], data[index]['tokens'], data[index]['trailing_whitespace'], data[index]['labels']
-            dataframe = pd.DataFrame({'text': text, 'tokens': tokens, 'trailing_whitespace': trailing_whitespace, 'labels': labels})
-            print(dataframe['labels'].unique())
+            dataframe = pd.DataFrame({'tokens': tokens, 'trailing_whitespace': trailing_whitespace, 'labels': labels})
+            print(dataframe.head())
             break
         return [0]
     
@@ -47,8 +47,7 @@ class DataParser():
 if __name__ == "__main__":
     parser = DataParser(filepaths=('data/train.json', 'data/test.json'))
     train, test = parser.parse_data()
-    parser.print_data(train, all=False)
-    parser.preprocessing(train)
+    parser.preprocessing(train) 
 
 
 

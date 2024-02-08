@@ -1,0 +1,6 @@
+version: '0.0.1'
+services:
+  pii-detector:
+    image: pii-detector:0.0.1
+    ports:
+      - "8000:80"

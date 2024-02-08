@@ -39,7 +39,7 @@ class DataParser():
         for index, items in enumerate(data):
             text, tokens, trailing_whitespace, labels = data[index]['full_text'], data[index]['tokens'], data[index]['trailing_whitespace'], data[index]['labels']
             dataframe = pd.DataFrame({'tokens': tokens, 'trailing_whitespace': trailing_whitespace, 'labels': labels})
-            print(dataframe.head())
+            print(dataframe.labels.value_counts())
             break
         return [0]
     

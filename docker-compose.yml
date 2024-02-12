@@ -1,6 +1,8 @@
-version: '0.0.1'
+version: '0.0.2'
 services:
   pii-detector:
-    image: pii-detector:0.0.1
+    image: pii-detector:0.0.2
+    volumes:
+      - /data:/app/data
     ports:
       - "8000:80"

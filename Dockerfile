@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . /pii-detector/
 
-CMD [ "python3", "./preprocessing.py" ]
+CMD [ "python3", "./train.py" ]

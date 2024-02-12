@@ -13,11 +13,9 @@ if __name__ == '__main__':
 
     X_train, X_test, y_train, y_test = parser.preprocess(train)
 
-    model.train(X_train, y_train)
+    model.train(X_train, y_train, X_test, y_test)
 
-    validator = Validator(model, X_test, y_test)
-
-    print(validator.evaluate(accuracy_score))
+    #0.899 submission
 
 
 
